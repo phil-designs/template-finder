@@ -1,9 +1,18 @@
 <?php
 /**
- * Plugin Name: Template Finder
- * Description: Find all pages using a specific page template, with frontend and backend links.
- * Version: 1.0.0
- * Author: Curiosity Shop
+ * Plugin Name:       PhilDesigns Template Finder
+ * Plugin URI:        https://phildesigns.com
+ * Description:       Find all pages using a specific page template, with links to view and edit each page directly from the WordPress admin.
+ * Version:           1.0.0
+ * Author:            PhilDesigns
+ * Author URI:        https://phildesigns.com
+ * License:           GPL-2.0-or-later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       template-finder
+ * Domain Path:       /languages
+ * Requires at least: 6.7
+ * Tested up to:      7.0
+ * Requires PHP:      7.4
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -57,6 +66,7 @@ function template_finder_query( string $template ): array {
 
 function template_finder_render_page(): void {
     $templates   = template_finder_get_all_templates();
+    // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only GET search; no state is modified.
     $selected    = isset( $_GET['tpl'] ) ? sanitize_text_field( wp_unslash( $_GET['tpl'] ) ) : '';
     $results     = [];
     $searched    = false;
@@ -140,8 +150,8 @@ function template_finder_render_page(): void {
                                     border-radius:3px;
                                     font-size:11px;
                                     font-weight:600;
-                                    background:<?php echo $page->post_status === 'publish' ? '#d4edda' : '#fff3cd'; ?>;
-                                    color:<?php echo $page->post_status === 'publish' ? '#155724' : '#856404'; ?>;
+                                    background:<?php echo esc_attr( $page->post_status === 'publish' ? '#d4edda' : '#fff3cd' ); ?>;
+                                    color:<?php echo esc_attr( $page->post_status === 'publish' ? '#155724' : '#856404' ); ?>;
                                 ">
                                     <?php echo esc_html( $status ); ?>
                                 </span>

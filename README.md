@@ -1,34 +1,45 @@
-# Template Finder
+# PhilDesigns Template Finder
 
-Tags: jQuery, javascript, php, css
-Requires at least: 3.6.0
-Tested up to: 6.9.1
-License: GPL2
+**Find all pages using a specific page template, with links to view and edit each page directly from the WordPress admin.**
+
+Tags: templates, page templates, theme, pages
+Requires at least: 6.7
+Tested up to: 7.0
+Requires PHP: 7.4
+License: GPL-2.0-or-later
+
+---
 
 ## Description
 
-Find all pages using a specific page template, with frontend and backend links.
+Template Finder adds a simple tool under **Tools → Template Finder** in the WordPress admin. Select any registered page template from a dropdown and instantly see every page assigned to that template — including drafts, private pages, and scheduled posts.
 
-## Tested on 
-* Firefox 
-* Safari
-* Chrome
-* Opera
-* MS Edge
+Each result shows the page title, its parent (if any), its publish status, and direct links to view and edit the page.
 
-## Website 
-http://www.phildesigns.com/
+**Features:**
 
-## Installation 
-1. Upload ‘template-finder’ to the '/wp-content/plugins/' directory on both sites
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Go to "Migration Toolkit>Bulk Author Assign" upload an CSV of urls from site A and assign them a specific author like "exporter"
-4. Use the Wordpress export tool to export the xml file using only that authors pages and posts
-5. If the file is large use the "Migration Toolkit>WXR File Splitter" to breakup the file into manageable chunks
-6. On site B upload the XML files using the Wordpress import tool
-7. Go to "Migration Toolkit>URL Migration Checker" and upload your original CSV file of urls to check that the pages and posts have been properly migrated.
+- Lists every page template registered by your active theme
+- Supports the Default Template option
+- Displays all post statuses: Published, Draft, Pending, Private, and Scheduled
+- Shows parent page for child pages
+- View and Edit links for each result
 
-## Change log 
+## Website
 
-Version 1.0.0
-• Initial release.
+https://phildesigns.com
+
+---
+
+## Installation
+
+1. Upload the `template-finder` folder to `/wp-content/plugins/`
+2. Activate the plugin through the **Plugins** menu in WordPress
+3. Go to **Tools → Template Finder**
+4. Select a template from the dropdown and click **Search**
+
+---
+
+## Changelog
+
+### 1.0.0
+- Initial release.
